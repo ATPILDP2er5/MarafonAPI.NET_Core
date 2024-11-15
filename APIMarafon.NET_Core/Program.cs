@@ -28,8 +28,18 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
     Host.CreateDefaultBuilder(args)
         .ConfigureWebHostDefaults(webBuilder =>
         {
-            webBuilder.UseStartup<Program>();
+            webBuilder.ConfigureKestrel(options =>
+            {
+                options.ListenAnyIP(4567); // HTTP порт
+                options.ListenAnyIP(4567, listenOptions => // HTTPS порт
+                {
+                    listenOptions.UseHttps("path/to/your/certificate.pfx", "certificate-password");
+                });
+            });
+
+            webBuilder.UseStartup<IStartup>();
         });
+        
 
 var app = builder.Build();
 

@@ -13,6 +13,9 @@
     <OutputType>Exe</OutputType>
     <ApplicationIcon>CHIP.ICO</ApplicationIcon>
     <Platforms>AnyCPU;x64</Platforms>
+    <SignAssembly>False</SignAssembly>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageIcon>parol_viden.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,6 +38,13 @@
 
   <ItemGroup>
     <Content Include="CHIP.ICO" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Users\DmitrievLev\Pictures\гифки\parol_viden.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
